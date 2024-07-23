@@ -19,6 +19,7 @@ GAME () {
     then
       ATTEMPTS=$(( $ATTEMPTS + 1 ))
       echo "You guessed it in $ATTEMPTS tries. The secret number was $SECRET. Nice job!"
+      echo "Thank you for playing!"
       INSERT_GAMES_RESULT=$($PSQL "INSERT INTO games(user_id, number_of_guesses) VALUES($USER_ID, $ATTEMPTS)")
       GUESSED=1
     elif [[ $GUESS -lt $SECRET ]]
